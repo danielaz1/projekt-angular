@@ -1,0 +1,25 @@
+<p>
+  Person 
+</p>
+<div *ngIf="person$ | async as person">{{person | json}}</div>
+
+<form (ngSubmit)="showLocation()">
+  <input type="text" [(ngModel)]="address" required [ngModelOptions]="{standalone: true}">
+  <button type="submit">Update Location</button>
+</form>
+
+<agm-map fxLayoutAlign="center center"
+  [latitude]="locationOn?.lat"
+  [longitude]="locationOn?.lng"
+  [zoom]="18"
+  [disableDefaultUI]="false"
+  [zoomControl]="false">
+  <agm-marker 
+      [latitude]="locationOn?.lat"
+      [longitude]="locationOn?.lng">   
+  </agm-marker>
+</agm-map>
+<p *ngIf="loading">Loading...</p>
+
+
+{{weather | json}}
