@@ -22,4 +22,10 @@
 <p *ngIf="loading">Loading...</p>
 
 
-{{weather | json}}
+<h2>Weather</h2>
+
+
+<p>Temp: {{weather.main.temp -273.15 | number : '1.2-2'}}</p>
+<p>Description: {{weather.weather[0].description }}</p>
+<p>Wind: {{weather.wind.speed }}</p>
+
